@@ -831,6 +831,10 @@ textarea:focus-visible {
   line-height: 1.35;
 }
 
+.runner-prompt-desktop-only {
+  display: none;
+}
+
 .story-card {
   position: absolute;
   z-index: var(--z-card);
@@ -2027,6 +2031,10 @@ textarea:focus-visible {
 
   .prompt-desktop {
     display: inline;
+  }
+
+  .runner-prompt-desktop-only {
+    display: flex;
   }
 
   .scene {

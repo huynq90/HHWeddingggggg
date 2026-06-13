@@ -310,7 +310,7 @@ export function LoveQuestRunner({ leader, showFinaleCard = true, onOpenInvitatio
         </div>
       )}
 
-      {currentSceneIndex < 2 && checkpointIndex === null && (
+      {currentSceneIndex === 0 && checkpointIndex === null && (
         <div className="direction-hint" aria-hidden="true">
           <span className="direction-hint-left">&lt;&lt;</span>
           <span className="direction-hint-right">&gt;&gt;</span>
@@ -339,12 +339,17 @@ export function LoveQuestRunner({ leader, showFinaleCard = true, onOpenInvitatio
         }
       />
 
-      <div className="runner-prompt" aria-hidden="true">
-        <span className="prompt-mobile">
-          Giữ nửa phải để đi tới, giữ nửa trái để lùi
-        </span>
+      {currentSceneIndex === 0 && (
+        <div className="runner-prompt" aria-hidden="true">
+          <span className="prompt-mobile">Giữ nửa phải để đi tới, giữ nửa trái để lùi</span>
+          <span className="prompt-desktop">Giữ →/D để đi, ←/A để lùi, ↑/W/Space để nhảy</span>
+        </div>
+      )}
+      {currentSceneIndex > 0 && (
+        <div className="runner-prompt runner-prompt-desktop-only" aria-hidden="true">
         <span className="prompt-desktop">Giữ →/D để đi, ←/A để lùi, ↑/W/Space để nhảy</span>
-      </div>
+        </div>
+      )}
 
       {checkpointIndex !== null && <StoryCard scene={scenes[checkpointIndex]} onContinue={continueStory} />}
     </section>
