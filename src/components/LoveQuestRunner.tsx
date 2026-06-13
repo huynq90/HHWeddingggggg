@@ -309,6 +309,14 @@ export function LoveQuestRunner({ leader, showFinaleCard = true, onOpenInvitatio
           <span className="camera-flash" />
         </div>
       )}
+
+      {currentSceneIndex < 2 && checkpointIndex === null && (
+        <div className="direction-hint" aria-hidden="true">
+          <span className="direction-hint-left">&lt;&lt;</span>
+          <span className="direction-hint-right">&gt;&gt;</span>
+        </div>
+      )}
+
       {nextScene.assetPath && (
         <img
           ref={nextBgRef}

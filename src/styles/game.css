@@ -900,6 +900,47 @@ textarea:focus-visible {
     linear-gradient(180deg, #fff8ed 0 34%, #3c956f 34% 100%);
 }
 
+.direction-hint {
+  position: absolute;
+  z-index: calc(var(--z-sprite) + 1);
+  right: 0;
+  bottom: 22%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 max(22px, env(safe-area-inset-right)) 0 max(22px, env(safe-area-inset-left));
+  pointer-events: none;
+}
+
+.direction-hint span {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 54px;
+  border: 3px solid rgba(255, 248, 237, 0.42);
+  border-radius: var(--radius);
+  color: rgba(255, 248, 237, 0.92);
+  background:
+    linear-gradient(90deg, rgba(47, 35, 48, 0.08), rgba(255, 248, 237, 0.34), rgba(47, 35, 48, 0.08)),
+    rgba(47, 35, 48, 0.18);
+  background-size: 220% 100%, auto;
+  box-shadow: 0 6px 0 rgba(47, 35, 48, 0.16);
+  font-size: 1.18rem;
+  font-weight: 900;
+  text-shadow: 0 2px 0 rgba(47, 35, 48, 0.34);
+  opacity: 0.7;
+  animation: directionHintGlow 1.15s steps(4, end) infinite;
+}
+
+.direction-hint-left {
+  animation-name: directionHintLeft;
+}
+
+.direction-hint-right {
+  animation-name: directionHintRight;
+}
+
 .story-copy {
   grid-column: 1 / -1;
   min-width: 0;
@@ -1809,6 +1850,36 @@ textarea:focus-visible {
 @keyframes markerPulse {
   50% {
     transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+@keyframes directionHintLeft {
+  0%,
+  100% {
+    opacity: 0.48;
+    background-position: 100% 0, 0 0;
+    transform: translateX(0);
+  }
+
+  50% {
+    opacity: 0.86;
+    background-position: 0 0, 0 0;
+    transform: translateX(-6px);
+  }
+}
+
+@keyframes directionHintRight {
+  0%,
+  100% {
+    opacity: 0.48;
+    background-position: 0 0, 0 0;
+    transform: translateX(0);
+  }
+
+  50% {
+    opacity: 0.86;
+    background-position: 100% 0, 0 0;
+    transform: translateX(6px);
   }
 }
 
