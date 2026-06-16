@@ -1689,7 +1689,10 @@ textarea:focus-visible {
 }
 
 .tiny-world {
-  background: #77cdd2;
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.56) 0 42px, transparent 44px),
+    radial-gradient(circle at 72% 12%, rgba(255, 255, 255, 0.38) 0 36px, transparent 38px),
+    linear-gradient(180deg, #75d0d5 0%, #a8dfd4 48%, #77cdd2 100%);
   touch-action: none;
 }
 
@@ -1805,6 +1808,16 @@ textarea:focus-visible {
   background: rgba(255, 248, 237, 0.9);
   font-size: 0.62rem;
   font-weight: 900;
+  white-space: nowrap;
+}
+
+.tiny-sign-label {
+  display: inline-block;
+  color: #2f2330;
+  font-size: 0.58rem;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
   white-space: nowrap;
 }
 
