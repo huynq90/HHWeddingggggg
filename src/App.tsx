@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { CharacterSelect, type LeaderId } from './components/CharacterSelect';
 import { IntroGate } from './components/IntroGate';
 import { LoveQuestRunner } from './components/LoveQuestRunner';
 import { LoveQuestAudio } from './components/LoveQuestAudio';
 
+const TinyWorldRoute = lazy(() =>
+  import('./components/TinyWorldRoute').then((module) => ({ default: module.TinyWorldRoute })),
+);
+
 type GamePhase = 'intro' | 'character-select' | 'running';
 
 function App() {
+  const isTinyWorldRoute = window.location.pathname.replace(/\/$/, '') === '/tiny-world';
   const [phase, setPhase] = useState<GamePhase>('intro');
   const [leader, setLeader] = useState<LeaderId>('viet-huy');
   const [showInvitation, setShowInvitation] = useState(false);
@@ -27,6 +32,23 @@ function App() {
       document.getElementById('finale-screen')?.scrollIntoView({ behavior: 'smooth' });
     }, 0);
   };
+
+  if (isTinyWorldRoute) {
+    return (
+      <main>
+        <LoveQuestAudio />
+        <Suspense
+          fallback={
+            <section className="game-screen intro-gate">
+              <p className="kicker">Loading tiny world</p>
+            </section>
+          }
+        >
+          <TinyWorldRoute />
+        </Suspense>
+      </main>
+    );
+  }
 
   return (
     <main>

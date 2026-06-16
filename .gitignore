@@ -5,3 +5,8 @@ dist/
 /ref/
 public/ref/*-tall.png
 public/ref/love-quest-panorama-nes.png
+.playwright-mcp/
+tmp/
+abeto-*.png
+tiny-world-*.png
+scripts/
