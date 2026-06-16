@@ -1,3 +1,5 @@
+import { LoveQuestAudio } from './LoveQuestAudio';
+
 type IntroGateProps = {
   onStart: () => void;
 };
@@ -16,6 +18,7 @@ export function IntroGate({ onStart }: IntroGateProps) {
         <button className="pixel-button primary" type="button" onClick={onStart} aria-label="Chạm để bắt đầu">
           Chạm để bắt đầu
         </button>
+        <LoveQuestAudio introCta />
       </div>
       <div className="loading-heart" aria-hidden="true">
         <span />

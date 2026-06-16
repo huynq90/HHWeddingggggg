@@ -30,7 +30,7 @@ function App() {
 
   return (
     <main>
-      <LoveQuestAudio introCta={phase === 'intro'} />
+      {phase !== 'intro' && <LoveQuestAudio />}
       {phase === 'intro' && <IntroGate onStart={() => setPhase('character-select')} />}
       {phase === 'character-select' && (
         <CharacterSelect
